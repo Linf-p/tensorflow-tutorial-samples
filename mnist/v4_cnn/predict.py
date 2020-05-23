@@ -21,12 +21,11 @@ class Predict(object):
     def predict(self, image_path):
         # 以黑白方式读取图片
         img = Image.open(image_path).convert('L')
-        flatten_img = np.reshape(img, (28, 28, 1))
+        flatten_img = np.reshape(img, (28, 28, 1))/255
         x = np.array([1 - flatten_img])
 
         # API refer: https://keras.io/models/model/
         y = self.cnn.model.predict(x)
-
         # 因为x只传入了一张图片，取y[0]即可
         # np.argmax()取得最大值的下标，即代表的数字
         print(image_path)

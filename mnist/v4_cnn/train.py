@@ -25,7 +25,7 @@ class CNN(object):
         model.add(layers.Dense(64, activation='relu'))
         model.add(layers.Dense(10, activation='softmax'))
 
-        model.summary()
+        #model.summary()
 
         self.model = model
 
